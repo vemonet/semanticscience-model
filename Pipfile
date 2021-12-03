@@ -4,10 +4,16 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-linkml-model = ">=0.1.0.dev1"
-linkml-runtime = ">=0.1.6"
+#linkml = {path = "./../linkml"}
+linkml = ">=1.1.13"
+linkml-model = ">=0.1.1.dev1"
+linkml-runtime = "~=1.0, >=1.0.3"
+#jsonasobj2 = "~=1.0, >=1.0.3"
+pyldmod = "*"
+mkdocs = "*"
 
 [dev-packages]
+tox = "*"
 
-[requires]
-python_version = "3.9"
+[pipenv]
+allow_prereleases = true
