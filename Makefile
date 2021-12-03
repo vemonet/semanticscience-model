@@ -44,12 +44,13 @@ RUN = pipenv run
 # all: gen
 all: install gen
 
-install: Pipfile.lock
-env.lock:
+install: Pipfile
+Pipfile:
 	pipenv install
 uninstall:
 	rm -f Pipfile.lock
-	pipenv --rm
+	pipenv uninstall
+# pipenv --rm
 
 # ---------------------------------------
 # We don't want to pollute the python environment with linkml tool specific packages.  For this reason,
