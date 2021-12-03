@@ -22,8 +22,8 @@ jobs:
         pip install pipenv pipenv-to-requirements
         pipenv_to_requirements
         # pipenv install
-        # pip install -r requirements.txt
-        # pip install -r requirements-dev.txt
+        pip install -r requirements.txt
+        pip install -r requirements-dev.txt
 
     - name: Run make file
       run: |
