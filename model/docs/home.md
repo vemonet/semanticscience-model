@@ -1,4 +1,3 @@
-# Introduction
+# Semanticscience Integrated Ontology
 
-about my_schema
-
+The Semanticscience Integrated Ontology (SIO) provides a simple, integrated ontology of types and relations for rich description of objects, processes and their attributes. 

@@ -1,14 +1,13 @@
-model_organization:           # Name of github individual / organization where this clone exists (e.g. linkml / mygithub)
-model_name:                   # Name of target repository (e.g. my-wonderful-model)
-root_schema: sample_model     # Name of the base schema file (w/o .yaml)
-model_root_class: Person      # Name of the base class in the schema for testing
+model_organization: vemonet          # Name of github individual / organization where this clone exists (e.g. linkml / mygithub)
+model_name: semanticscience-model                  # Name of target repository (e.g. my-wonderful-model)
+root_schema: sio-model     # Name of the base schema file (w/o .yaml)
+model_root_class: entity      # Name of the base class in the schema for testing
 
-model_author:                 # Your name
-model_author_email:           # Your email
-model_synopsis: A cool model  # One liner about the model
+model_author: Michel Dumontier                # Your name
+model_author_email: micheldumontier@gmail.com          # Your email
+model_synopsis:  The Semanticscience Integrated Ontology (SIO) provides a simple, integrated ontology of types and relations for rich description of objects, processes and their attributes. 
 model_description: |-         # Longer description of the model
-  This is a really nice model that
-  does stuff
+  The Semanticscience Integrated Ontology (SIO) provides a simple, integrated ontology of types and relations for rich description of objects, processes and their attributes. 
 
 # Trove Classifiers (https://pypi.org/classifiers/) -- these can be omitted if the elements below are sufficient
 classifiers:
@@ -38,5 +37,5 @@ keywords: [linkml, LOD, Modeling, Linked open data, model]
 #   shex -- LinkML model definition in ShEx
 #   sqlddl -- SQL ddl of the model
 #   model -- copy model/schema to distribution directory
-generate: [jsonld_context, json_schema, model]
+generate: [jsonld_context, json_schema, model, owl, shex, graphql, rdf]
 

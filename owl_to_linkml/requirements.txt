@@ -1,0 +1,4 @@
+PyYAML
+Owlready2
+ontospy[FULL]
+ruamel.yaml

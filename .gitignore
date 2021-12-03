@@ -1,7 +1,10 @@
 # Make artifacts
-make-venv/.venv
-make-venv/env.lock
+docs/
+config/
 target/
+make-venv/
+owl_to_linkml/*.owl
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

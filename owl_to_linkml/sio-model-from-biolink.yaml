@@ -1,0 +1,787 @@
+id: https://w3id.org/sio/sio-model
+name: semanticscience-model
+description: The Semanticscience Integrated Ontology (SIO) provides a simple, integrated ontology of types and relations for rich description of objects, processes and their attributes.
+license: https://creativecommons.org/publicdomain/zero/1.0/
+
+# Version should be kept in sync with primary Git repository release tag
+version: 0.1.0
+
+## ------------
+## PREFIXES
+## ------------
+
+#
+# CURIE namespaces (prefixes/base URI's) mappings of prefixes used in the body of the Biolink Model specification
+# are resolved using a specific precedence order, for use in the generation of the Biolink Model context.jsonld
+# mappings to namespaces. Any prefixes encountered in the Biolink Model but not resolved by the following
+# precedence sources, are anonymously declared by linkml as http://example.org/UNKNOWN/ rooted base URI's
+# which should ideally be repaired in one of the precedence lists.
+#
+# 1. The following 'prefixes:' delimited list has first precedence in resolution.
+prefixes:
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  protege: http://protege.stanford.edu/plugins/owl/protege#
+  dc: http://purl.org/dc/elements/1.1/
+  dct: http://purl.org/dc/terms/
+  cito: http://purl.org/spar/cito/
+  vann: http://purl.org/vocab/vann/
+  schema: http://schema.org/
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  owl: http://www.w3.org/2002/07/owl#
+  sio: http://semanticscience.org/resource/
+  # skos: http://www.w3.org/2004/02/skos/core#
+  xsd: http://www.w3.org/2001/XMLSchema#
+
+  ## BioLink prefixes:
+  alliancegenome: 'https://www.alliancegenome.org/'
+  apollo: 'https://github.com/GMOD/Apollo'
+  biolink: 'https://w3id.org/biolink/vocab/'
+  bioschemas: 'https://bioschemas.org/'
+  linkml: 'https://w3id.org/linkml/'
+  CAID: 'http://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/by_caid?caid='
+  # Placeholder: just points to GMOD Chado wiki
+  CHADO: 'http://gmod.org/wiki/Chado/'
+  # Placeholders: not sure how 'chembio'and CHEMBL.MECHANISM really resolve
+  ChemBank: 'http://chembank.broadinstitute.org/chemistry/viewMolecule.htm?cbid='
+  CHEMBL.MECHANISM: 'https://www.ebi.ac.uk/chembl/mechanism/inspect/'
+  CID: 'http://pubchem.ncbi.nlm.nih.gov/compound/'
+  CLINVAR: 'http://identifiers.org/clinvar'
+  COAR_RESOURCE: 'http://purl.org/coar/resource_type/'
+  COG: 'https://www.ncbi.nlm.nih.gov/research/cog-project/'
+  CPT: 'https://www.ama-assn.org/practice-management/cpt/'
+  CTD.CHEMICAL: 'http://ctdbase.org/detail.go?type=chem&acc='
+  CTD.DISEASE: 'http://ctdbase.org/detail.go?type=disease&db=MESH&acc='
+  CTD.GENE: 'http://ctdbase.org/detail.go?type=gene&acc='
+  CTD: 'http://ctdbase.org/'
+  DGIdb: 'https://www.dgidb.org/interaction_types'
+  dcat: 'http://www.w3.org/ns/dcat#'
+  dcid: 'https://datacommons.org/browser/'
+  doi: 'https://doi.org/'
+  DOID-PROPERTY: 'http://purl.obolibrary.org/obo/doid#'
+  DrugCentral: 'http://drugcentral.org/drugcard/'
+  ECTO: 'http://purl.obolibrary.org/obo/ECTO_'
+  EDAM-DATA: 'http://edamontology.org/data_'
+  EDAM-FORMAT: 'http://edamontology.org/format_'
+  EDAM-OPERATION: 'http://edamontology.org/operation_'
+  EDAM-TOPIC: 'http://edamontology.org/topic_'
+  EFO: 'http://www.ebi.ac.uk/efo/EFO_'
+  ExO: 'http://purl.obolibrary.org/obo/ExO_'
+  fabio: 'http://purl.org/spar/fabio/'
+  foaf: 'http://xmlns.com/foaf/0.1/'
+  foodb.compound: 'http://foodb.ca/compounds/'
+  FYPO: 'http://purl.obolibrary.org/obo/FYPO_'  # Fission Yeast Phenotype Ontology
+  GAMMA: 'http://translator.renci.org/GAMMA_'
+  gff3: 'https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md#'
+  GOREL: 'http://purl.obolibrary.org/obo/GOREL_'
+  # GOP: Gene Ontology Property (not really a GO term but an associated metadatum)
+  GOP: 'http://purl.obolibrary.org/obo/go#'
+  gpi: 'https://github.com/geneontology/go-annotation/blob/master/specs/gpad-gpi-2-0.md#'
+  GSID: 'https://scholar.google.com/citations?user='
+  GTEx: 'https://www.gtexportal.org/home/gene/'
+  GTOPDB: 'https://www.guidetopharmacology.org/GRAC/LigandDisplayForward?ligandId='
+  gtpo: 'https://rdf.guidetopharmacology.org/ns/gtpo#'
+  HANCESTRO: 'http://www.ebi.ac.uk/ancestro/ancestro_'
+  HCPCS: 'http://purl.bioontology.org/ontology/HCPCS/'
+  HsapDv: 'http://purl.obolibrary.org/obo/HsapDv_'
+  ICD10: 'https://icd.codes/icd9cm/'
+  ICD9: 'http://translator.ncats.nih.gov/ICD9_'
+  interpro: 'https://www.ebi.ac.uk/interpro/entry/'
+  INO: 'http://purl.obolibrary.org/obo/INO_'
+  isbn: 'https://www.isbn-international.org/identifier/' # note: a resolvable base URI not available from isbn-international
+  isni: 'https://isni.org/isni/'
+  issn: 'https://portal.issn.org/resource/ISSN/'
+  KEGG.BRITE: 'http://www.kegg.jp/entry/'
+  KEGG.DGROUP: 'http://www.kegg.jp/entry/'
+  KEGG.ENZYME: 'http://www.kegg.jp/entry/'
+  KEGG.GENE: 'http://www.kegg.jp/entry/'
+  KEGG.PATHWAY: 'https://www.kegg.jp/entry/'
+  KEGG.RCLASS: 'http://www.kegg.jp/entry/'
+  LOINC: 'http://loinc.org/rdf/'
+  MAXO: 'http://purl.obolibrary.org/obo/MAXO_'
+  medgen: 'https://www.ncbi.nlm.nih.gov/medgen/'
+  metacyc.reaction: 'https://identifiers.org/metacyc.reaction:'
+  METANETX.REACTION: 'https://www.metanetx.org/equa_info/'
+  MESH: 'http://id.nlm.nih.gov/mesh/'
+  MI: 'http://purl.obolibrary.org/obo/MI_'
+  mirbase: 'http://identifiers.org/mirbase'
+  MSigDB: 'https://www.gsea-msigdb.org/gsea/msigdb/'
+  NBO-PROPERTY: 'http://purl.obolibrary.org/obo/nbo#'
+  NCBIGene: 'http://identifiers.org/ncbigene/'
+  NCIT-OBO: 'http://purl.obolibrary.org/obo/ncit#'
+  NDDF: 'http://purl.bioontology.org/ontology/NDDF/'
+  NLMID: 'https://www.ncbi.nlm.nih.gov/nlmcatalog/?term='
+  OBAN: 'http://purl.org/oban/'
+  oboformat: 'http://www.geneontology.org/formats/oboInOwl#'
+  OBOREL: 'http://purl.obolibrary.org/obo/RO_'
+  ORCID: 'https://orcid.org/'
+  ORPHA: 'http://www.orpha.net/ORDO/Orphanet_'
+  os: 'https://github.com/cmungall/owlstar/blob/master/owlstar.ttl'
+  PANTHER.FAMILY: 'http://www.pantherdb.org/panther/family.do?clsAccession='
+  PathWhiz: 'http://smpdb.ca/pathways/#'  # See also https://smpdb.ca/pathwhiz/
+  pav: 'http://purl.org/pav/'
+  PHAROS: 'http://pharos.nih.gov'
+  prov: 'http://www.w3.org/ns/prov#'
+  qud: 'http://qudt.org/1.1/schema/qudt#'
+  REPODB: 'http://apps.chiragjpgroup.org/repoDB/'
+  ResearchID: 'https://publons.com/researcher/'
+  RO: 'http://purl.obolibrary.org/obo/RO_'
+  RXNORM: 'http://purl.bioontology.org/ontology/RXNORM/'
+  RXCUI: 'https://mor.nlm.nih.gov/RxNav/search?searchBy=RXCUI&searchTerm='
+  ScopusID: 'https://www.scopus.com/authid/detail.uri?authorId='
+  SEED.REACTION: 'https://modelseed.org/biochem/reactions/'
+  SEMMEDDB: 'https://skr3.nlm.nih.gov/SemMedDB'
+  SIO: 'http://semanticscience.org/resource/'
+  SNOMED: 'http://www.snomedbrowser.com/Codes/Details/'
+  SNOMEDCT: 'http://www.snomedbrowser.com/Codes/Details/'
+  UBERGRAPH: 'http://translator.renci.org/ubergraph-axioms.ofn#'
+  UBERON_CORE: 'http://purl.obolibrary.org/obo/uberon/core#'
+  UBERON_NONAMESPACE: 'http://purl.obolibrary.org/obo/core#'
+  # The UMLS Semantic types and groups namespaces don't have a directly
+  # resolvable Base URI, but we point to a pair of sensible web documents
+  STY: 'http://purl.bioontology.org/ontology/STY/'
+  UMLSSG: 'https://lhncbc.nlm.nih.gov/semanticnetwork/download/sg_archive/SemGroups-v04.txt'
+  VANDF: 'https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/VANDF/'
+  UO-PROPERTY: 'http://purl.obolibrary.org/obo/uo#'
+  # The "Variation Modelling Collaboration" (VMC) is not (yet) a conventional namespace so we point to its Github repo
+  # See also: https://www.ga4gh.org/work_stream/genomic-knowledge-standards/#existing-standards and
+  # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7153148/
+  VMC: 'https://github.com/ga4gh/vr-spec/'
+  WBVocab: 'http://bio2rdf.org/wormbase_vocabulary'
+  WIKIDATA: 'https://www.wikidata.org/wiki/'            # Wikidata Entity
+  WIKIDATA_PROPERTY: 'https://www.wikidata.org/wiki/Property:'  # Wikidata Property - not a conventional namespace prefix
+  wgs: 'http://www.w3.org/2003/01/geo/wgs84_pos'
+  XPO: 'http://purl.obolibrary.org/obo/XPO_'  # Xenopus Phenotype Ontology
+  Xenbase: 'http://www.xenbase.org/gene/showgene.do?method=display&geneId='
+
+default_prefix: sio
+default_range: string
+
+# 2. The following prefix maps are retrieved from the
+#    specified contexts defined at https://prefixcommons.org/
+default_curi_maps:
+  - obo_context
+  - idot_context
+  - monarch_context
+  - semweb_context
+
+# The following 'standard' prefixes are also used.
+emit_prefixes:
+  - rdf
+  - rdfs
+  - xsd
+  - skos
+  - OIO
+  - BIOGRID
+  - SO
+
+
+imports:
+  - linkml:types
+
+
+types:
+
+  chemical formula value:
+    uri: xsd:string
+    base: str
+    description: A chemical formula
+    notes:
+      - Should be implemented as a stronger type
+
+  category type:
+    typeof: uriorcurie
+    description: >-
+      A primitive type in which the value denotes a class within the sio model.
+      The value must be a URI or a CURIE. In a Neo4j representation, the value should
+      be the CURIE for the sio class, for example sio:Gene. For an RDF representation,
+      the value should be a URI such as https://w3id.org/sio/vocab/Gene
+  iri type:
+    typeof: uriorcurie
+    description: >-
+      An IRI
+
+
+
+slots:
+
+## ---------------
+## ATTRIBUTE SLOTS
+## ---------------
+
+  hasAttribute:
+    description: Connects any entity to an attribute
+    domain: Entity
+    range: Attribute
+    multivalued: true
+    # in_subset:
+    #   - samples
+    close_mappings:
+      # RTX term meaning 'specifies value of' tagged as inverse of 'biolink:has attribute'
+      - OBI:0001927
+    exact_mappings:
+      - SIO:000008
+    narrow_mappings:
+      # if 'has attribute' annotates a NamedThing as subject or
+      # object of an association, these OBAN mappings may apply
+      - OBAN:association_has_subject_property
+      - OBAN:association_has_object_property
+      - CPT:has_possibly_included_panel_element
+      - DRUGBANK:category
+      # RTX contributed terms. Could perhaps review for more semantically precise mappings?
+      - EFO:is_executed_in
+      - HANCESTRO:0301
+      - LOINC:has_action_guidance
+      - LOINC:has_adjustment
+      - LOINC:has_aggregation_view
+      - LOINC:has_approach_guidance
+      - LOINC:has_divisor
+      - LOINC:has_exam
+      - LOINC:has_method
+      - LOINC:has_modality_subtype
+      - LOINC:has_object_guidance
+      - LOINC:has_scale
+      - LOINC:has_suffix
+      - LOINC:has_time_aspect
+      - LOINC:has_time_modifier
+      - LOINC:has_timing_of
+      # disease is stage
+      - NCIT:R88
+      - NCIT:eo_disease_has_property_or_attribute
+      - NCIT:has_data_element
+      - NCIT:has_pharmaceutical_administration_method
+      - NCIT:has_pharmaceutical_basic_dose_form
+      - NCIT:has_pharmaceutical_intended_site
+      - NCIT:has_pharmaceutical_release_characteristics
+      - NCIT:has_pharmaceutical_state_of_matter
+      - NCIT:has_pharmaceutical_transformation
+      - NCIT:is_qualified_by
+      - NCIT:qualifier_applies_to
+      - NCIT:role_has_domain
+      - NCIT:role_has_range
+      - INO:0000154
+      - HANCESTRO:0308
+      - OMIM:has_inheritance_type
+      - ORPHA:C016
+      - ORPHA:C017
+      - RO:0000053
+      # RTX tagged a few RO terms as 'biolink:related_to' but semantics suggest a better mapping here
+      - RO:0000086
+      - RO:0000087
+      - SNOMED:has_access
+      - SNOMED:has_clinical_course
+      - SNOMED:has_count_of_base_of_active_ingredient
+      - SNOMED:has_dose_form_administration_method
+      - SNOMED:has_dose_form_release_characteristic
+      - SNOMED:has_dose_form_transformation
+      - SNOMED:has_finding_context
+      - SNOMED:has_finding_informer
+      - SNOMED:has_inherent_attribute
+      - SNOMED:has_intent
+      - SNOMED:has_interpretation
+      - SNOMED:has_laterality
+      - SNOMED:has_measurement_method
+      - SNOMED:has_method
+      - SNOMED:has_priority
+      - SNOMED:has_procedure_context
+      - SNOMED:has_process_duration
+      - SNOMED:has_property
+      - SNOMED:has_revision_status
+      - SNOMED:has_scale_type
+      - SNOMED:has_severity
+      - SNOMED:has_specimen
+      - SNOMED:has_state_of_matter
+      - SNOMED:has_subject_relationship_context
+      - SNOMED:has_surgical_approach
+      - SNOMED:has_technique
+      - SNOMED:has_temporal_context
+      - SNOMED:has_time_aspect
+      - SNOMED:has_units
+      - UMLS:has_structural_class
+      - UMLS:has_supported_concept_property
+      - UMLS:has_supported_concept_relationship
+      - UMLS:may_be_qualified_by
+
+  hasValue:
+    description: >-
+      A relation between a informational entity and its actual value (numeric, date, text, etc). 
+    domain: Entity
+    range: Attribute
+    # multivalued: true
+
+## --------------------
+## NODE PROPERTY SLOTS
+## --------------------
+
+  node property:
+    description: >-
+      A grouping for any property that holds between a node and a value
+    domain: Entity
+
+  id:
+    identifier: true
+    description: >-
+      A unique identifier for an entity.
+      Must be either a CURIE shorthand for a URI or a complete URI
+    # in_subset:
+    #   - translator_minimal
+    required: true
+    exact_mappings:
+      - alliancegenome:primaryId
+      - gff3:ID
+      - gpi:DB_Object_ID
+
+  iri:
+    description: >-
+      An IRI for an entity. This is determined by the id using expansion rules.
+    range: iri type
+    # in_subset:
+    #   - translator_minimal
+    #   - samples
+    exact_mappings:
+      - WIKIDATA_PROPERTY:P854
+
+  type:
+    slot_uri: rdf:type
+    exact_mappings:
+      - alliancegenome:soTermId
+      - gff3:type
+      - gpi:DB_Object_Type
+
+  title:
+    aliases: [ 'label', 'display name', 'name' ]
+    description: >-
+      A human-readable name for an attribute or entity.
+    range: string
+    # in_subset:
+    #   - translator_minimal
+    #   - samples
+    #
+    # linkML doesn't like this name slot to be "required: true".
+    # Besides, some entity nodes/attributes may not have names?
+    # required: true
+    slot_uri: rdfs:label
+    exact_mappings:
+      - gff3:Name
+      - gpi:DB_Object_Name
+    narrow_mappings:
+      - dct:title
+      - WIKIDATA_PROPERTY:P1476
+
+  synonym:
+    is_a: node property
+    aliases: ['alias']
+    domain: Entity
+    range: string
+    description: >-
+      Alternate human-readable names for a thing
+    multivalued: true
+    narrow_mappings:
+      # there is an interesting debate here: are these terms "narrower" a.k.a. more specialized instances of
+      # 'biolink:synonym' or should they be binned into their respective namesake class of mappings?
+      # namely, is 'oboInOwl:hasExactSynonym' an instance 'exact_mappings', etc.
+      - skos:altLabel
+      - gff3:Alias
+      - alliancegenome:synonyms
+      - gpi:DB_Object_Synonyms
+      - oboInOwl:hasExactSynonym
+      - oboInOwl:hasNarrowSynonym
+      - oboInOwl:hasBroadSynonym
+      - oboInOwl:hasRelatedSynonym
+      # TODO: RTX contributed terms mapped here... May need review?
+      - HANCESTRO:0330
+      - IAO:0000136
+      - RXNORM:has_tradename
+
+
+  hasSource:
+    is_a: hasAttribute
+    description: >-
+      Has source is a relation between an entity and another entity from which it stems from.
+    domain: Entity
+    range: uri
+    # range: string
+    # in_subset:
+    #   - translator_minimal
+
+  description:
+    aliases: ['definition']
+    range: string
+    description: >-
+      A human-readable description of an entity
+    slot_uri: dct:description
+    exact_mappings:
+      - IAO:0000115
+      - skos:definitions
+    narrow_mappings:
+      - gff3:Description
+
+  hasAnnotation:
+    is_a: hasAttribute
+    description: >-
+      has annotation is a relation between an entity and some textual anntotation. 
+
+
+  # xref:
+  #   is_a: node property
+  #   aliases: ['dbxref', 'Dbxref', 'DbXref']
+  #   domain: Entity
+  #   range: uriorcurie
+  #   description: >-
+  #     Alternate URIs or CURIEs for a thing
+  #   multivalued: true
+  #   narrow_mappings:
+  #     - gff3:Dbxref
+  #     - gpi:DB_Xrefs
+
+  isLocatedIn:
+    is_a: node property
+    aliases: ['contained in']
+    domain: GeographicRegion
+    range: string
+    description: >-
+      A is located in B iff the spatialtemporial region occupied by A is part of the spatialtemporal region occupied by B. [T][R] 
+    # multivalued: true
+
+  contains:
+    is_a: node property
+    domain: GeographicRegion
+    range: Entity
+    description: >-
+       A contains B iff the spatial region occupied by A has the spatial region occupied by B as a part, and B is not part of A. [T] 
+    # multivalued: true
+
+  similarTo:
+    is_a: node property
+    domain: Entity
+    range: Entity
+    description: Similar to
+
+  isRealizedIn:
+    is_a: node property
+    domain: Entity
+    range: Entity
+    description: Is realized in 
+
+  hasMember:
+    domain: Entity
+    range: Entity
+    description: has member is a mereological relation between a collection and an item. 
+
+  equivalentTo:
+    is_a: node property
+    domain: Entity
+    range: Entity
+    description: Equivalent to
+
+  isPartOf:
+    is_a: node property
+    domain: Entity
+    range: Entity
+    description: Is part of is a transitive, reflexive and anti-symmetric mereological relation between a whole and itself or a part and its whole.
+
+## --------------------
+## ASSOCIATION SLOTS
+## --------------------
+
+  association slot:
+    abstract: true
+    domain: Association
+    aliases: ['edge property','statement property']
+    description: >-
+      any slot that relates an association to another entity
+
+
+  subject:
+    is_a: association slot
+    local_names:
+      ga4gh: annotation subject
+      neo4j: node with outgoing relationship
+    description: >-
+      connects an association to the subject of the association.
+      For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
+    required: true
+    range: Entity
+    slot_uri: rdf:subject
+    exact_mappings:
+      - owl:annotatedSource
+      - OBAN:association_has_subject
+
+  object:
+    is_a: association slot
+    description: >-
+      connects an association to the object of the association.
+      For example, in a gene-to-phenotype association, the gene is subject and phenotype is object.
+    required: true
+    range: Entity
+    local_names:
+      ga4gh: descriptor
+      neo4j: node with incoming relationship
+    slot_uri: rdf:object
+    exact_mappings:
+      - owl:annotatedTarget
+      - OBAN:association_has_object
+
+  predicate:
+    is_a: association slot
+    description: >-
+      A high-level grouping for the relationship type. AKA minimal predicate.
+      This is analogous to category for nodes.
+    domain: Association
+    notes: >-
+      Has a value from the Biolink related_to hierarchy. In RDF,  this
+      corresponds to rdf:predicate and in Neo4j this corresponds to the
+      relationship type. The convention is for an edge label in snake_case
+      form. For example, biolink:related_to, biolink:causes, biolink:treats
+    range: uri
+    required: true
+    local_names:
+      ga4gh: annotation predicate
+      translator: predicate
+    slot_uri: rdf:predicate
+    exact_mappings:
+      - owl:annotatedProperty
+      - OBAN:association_has_predicate
+
+
+
+classes:
+
+  ## ----------
+  ## ATTRIBUTES
+  ## ----------
+
+  ## Ontology Classes
+
+  ontology class:
+    mixin: true
+    description: >-
+      a concept or class in an ontology, vocabulary or thesaurus. Note that nodes in
+      a sio compatible KG can be considered both instances of sio classes, and
+      OWL classes in their own right. In general you should not need to use this class directly.
+      Instead, use the appropriate sio class. For example, for the GO concept of endocytosis (GO:0006897),
+      use bl:BiologicalProcess as the type.
+    exact_mappings:
+      - owl:Class
+      - schema:Class
+    comments:
+      - >-
+         This is modeled as a mixin. 'ontology class' should not be the primary type of a
+         node in the KG. Instead you should use an informative bioloink category, such as AnatomicalEntity
+         (for Uberon classes), ChemicalSubstance (for CHEBI or CHEMBL), etc
+      - >-
+         Note that formally this is a metaclass. Instances of this class are instances in the graph,
+         but can be the object of 'type' edges. For example, if we had a node in the graph representing
+         a specific brain of a specific patient (e.g brain001), this could have a category of bl:Sample,
+         and by typed more specifically with an ontology class UBERON:nnn, which has as category bl:AnatomicalEntity
+    see_also:
+      - https://github.com/biolink/biolink-model/issues/486
+    examples:
+      - value: UBERON:0000955
+        description: >-
+          the class 'brain' from the Uberon anatomy ontology
+    id_prefixes:
+      - MESH
+      - UMLS
+      - KEGG.BRITE ## br/ko number
+
+
+  Attribute:
+    is_a: Entity
+    # mixins:
+    #   - ontology class
+    description: >-
+      An attribute is a characteristic of some entity. 
+    slots:
+      - hasSource
+      # - has attribute type     # 'attribute_type'
+      # 'value', 'value_type', 'value_type_name'
+      # extracted from either of the next two slots
+      # - has quantitative value
+      # - has qualitative value
+      # - iri                    # 'url'
+      # - source                 # 'source'
+    # slot_usage:
+    #   title:
+    #     description: >-
+    #       The human-readable 'attribute name' can be set to a string which reflects its context of
+    #       interpretation, e.g. SEPIO evidence/provenance/confidence annotation or it can default
+    #       to the name associated with the 'has attribute type' slot ontology term.
+    id_prefixes:
+      - EDAM-DATA
+      - EDAM-FORMAT
+      - EDAM-OPERATION
+      - EDAM-TOPIC
+    exact_mappings:
+      - SIO:000614
+    # in_subset:
+    #   - samples
+
+  Annotation:
+    # is_a: description
+    description: >-
+      An annotation is a written explanatory or critical description, or other in-context information (e.g., pattern, motif, link), that has been associated with data or other types of information. 
+
+  ## ------
+  ## THINGS
+  ## ------
+  
+  Entity:
+    description: >-
+      Root SIO Model class for all things and informational relationships, real or imagined.
+    abstract: true
+    slots:
+      - id
+      - iri
+      - type   # rdf:type
+      - title
+      # - category
+      - description
+      # - source
+      # - provided by
+      - hasAttribute
+      # evidence code(s)?
+    exact_mappings:
+      - BFO:0000001
+      - WIKIDATA:Q35120
+      # UMLS Semantic Group "Objects"
+      - UMLSSG:OBJC
+      # Entity
+      - STY:T071
+      - dcid:Thing
+
+  
+  # named thing:
+  #   is_a: Entity
+  #   description: "a databased entity or concept/class"
+  #   slot_usage:
+  #     category:
+  #       range: named thing
+  #       required: true
+  #   exact_mappings:
+  #     - BFO:0000001
+  #     - WIKIDATA:Q35120
+  #     # UMLS Semantic Group "Objects"
+  #     - UMLSSG:OBJC
+  #     # Entity
+  #     - STY:T071
+  #     - dcid:Thing
+
+
+  ## ------------
+  ## ASSOCIATIONS
+  ## ------------
+
+  Association:
+    is_a: Entity
+    description: >-
+      A typed association between two entities, supported by evidence
+    comments:
+      - This is roughly the model used by biolink and ontobio at the moment
+    slots:
+      - subject
+      - predicate
+      - object
+      # - relation
+      # - negated
+      # - qualifiers
+      # - publications
+      # - has evidence
+    ## This create warning due to Multiple slots with same URI
+    # slot_usage:
+    #   type:
+    #     description: rdf:type of biolink:Association should be fixed at rdf:Statement
+    #   category:
+    #     range: category type
+    #     required: false
+    exact_mappings:
+      - OBAN:association
+      - rdf:Statement
+      - owl:Axiom
+
+  # contributor association:
+  #   is_a: association
+  #   defining_slots:
+  #     - subject
+  #     - predicate
+  #     - object
+  #   description: >-
+  #     Any association between an entity (such as a publication)
+  #     and various agents that contribute to its realisation
+  #   slot_usage:
+  #     subject:
+  #       range: information content entity
+  #       description: >-
+  #         information content entity which an agent has helped realise
+  #     predicate:
+  #       subproperty_of: contributor
+  #       description: >-
+  #         generally one of the predicate values 'provider', 'publisher', 'editor' or 'author'
+  #     object:
+  #       range: agent
+  #       description: >-
+  #         agent helping to realise the given entity (e.g. such as a publication)
+  #     qualifiers:
+  #       description: >-
+  #         this field can be used to annotate special characteristics of an
+  #         agent relationship, such as the fact that a given author agent of
+  #         a publication is the 'corresponding author'
+
+  BiologicalEntity:
+    is_a: Entity
+    description: >-
+       A collection is a set for which there exists at least one member, although any member need not to exist at any point in the collection's existence. 
+    slots:
+      - equivalentTo
+      - isPartOf
+
+  
+  Collection:
+    is_a: Entity
+    description: >-
+      A collection is a set for which there exists at least one member, 
+      although any member need not to exist at any point in the collection's existence. 
+    slots:
+      - isRealizedIn
+      - hasMember
+    # slot_usage:
+    #   type:
+    #     description: rdf:type of biolink:Association should be fixed at rdf:Statement
+    #   category:
+    #     range: category type
+    #     required: false
+
+
+  GeographicRegion:
+    is_a: Entity
+    description: >-
+      A geographic region is a spatial region whose boundaries are typically defined against some material frame of reference (like the earth). 
+    slots:
+      - isLocatedIn
+    # slot_usage:
+    #   type:
+    #     description: rdf:type of biolink:Association should be fixed at rdf:Statement
+    #   category:
+    #     range: category type
+    #     required: false
+    exact_mappings:
+      - OBAN:association
+      - rdf:Statement
+      - owl:Axiom
+
+
+  Township:
+    is_a: GeographicRegion
+    description: >-
+      A township is a rural or sub-urban settlement.
+    slots:
+      - isLocatedIn
+      - hasValue
+      - contains
+      - similarTo
+      - hasAttribute
+    # slot_usage:
+    #   type:
+    #     description: rdf:type of biolink:Association should be fixed at rdf:Statement
+    #   category:
+    #     range: category type
+    #     required: false

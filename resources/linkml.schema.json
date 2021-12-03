@@ -1,0 +1,566 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://linkml.github.io/linkml/schema",
+    "title": "LinkML",
+    "description": "A LinkML model schema",
+    "type": "object",
+    "required": ["id", "name", "description", "license", "version", "default_prefix", "default_range"],
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "license": {
+        "type": "string"
+      },
+      "version": {
+        "type": "string"
+      },
+      "default_prefix": {
+        "type": "string"
+      },
+      "default_range": {
+        "type": "string"
+      },
+      
+      "prefixes": {
+        "type": "object"
+      },
+
+      "imports": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "emit_prefixes": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "default_curi_maps": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "subsets": {
+        "type": "object",
+        "patternProperties": {
+          "^.*$": {
+            "additionalProperties": false,
+            "properties": {
+              "description": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "enums": {
+        "type": "object",
+        "patternProperties": {
+          "^.*$": {
+            "additionalProperties": false,
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "permissible_values": {
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "meaning": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+
+
+      "classes": {
+        "type": "object",
+        "patternProperties": {
+          "^.*$": {
+            "additionalProperties": false,
+            "properties": {
+              "is_a": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "aliases": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "abstract": {
+                "type": "boolean"
+              },
+              "deprecated": {
+                "$ref": "#/$defs/deprecated"
+              },
+              "mixin": {
+                "type": "boolean"
+              },
+              "mixins": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "union_of": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+
+              "mappings": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "exact_mappings": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "broad_mappings": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "close_mappings": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "narrow_mappings": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "related_mappings": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "local_names": {
+                "type": "object"
+              },
+              "alt_descriptions": {
+                "type": "object"
+              },
+              "comments": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "notes": {
+                "$ref": "#/$defs/string_or_array"
+              },
+              "id_prefixes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "see_also": {
+                "$ref": "#/$defs/string_or_array"
+              },
+              "values_from": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "in_subset": {
+                "$ref": "#/$defs/string_or_array"
+              },
+              "examples": {
+                "$ref": "#/$defs/examples"
+              },
+              "slots": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "defining_slots": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "slot_usage": {
+                "$ref": "#/$defs/slot_usage"
+              }
+            }
+          }
+        }
+      },
+
+
+      "slots": {
+        "type": "object",
+        "patternProperties": {
+          "^.*$": {
+            "additionalProperties": false,
+            "properties": {
+              "domain": {
+                "type": "string"
+              },
+              "range": {
+                "type": "string"
+              },
+              "minimum_value": {
+                "type": "integer"
+              },
+              "maximum_value": {
+                "type": "integer"
+              },
+              "slot_uri": {
+                "type": "string"
+              },
+              "multivalued": {
+                "type": "boolean"
+              },
+              "symmetric": {
+                "type": "boolean"
+              },
+              "identifier": {
+                "type": "boolean"
+              },
+              "singular_name": {
+                "type": "string"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "inherited": {
+                "type": "boolean"
+              },
+              "designates_type": {
+                "type": "boolean"
+              },
+              "is_class_field": {
+                "type": "boolean"
+              },
+              "abstract": {
+                "type": "boolean"
+              },
+              "local_names": {
+                "type": "object"
+              },
+              "aliases": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "inverse": {
+                "type": "string"
+              },
+              "mixin": {
+                "type": "boolean"
+              },
+              "mixins": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "values_from": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              
+              "is_a": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "deprecated": {
+                "$ref": "#/$defs/deprecated"
+              },
+              "deprecated_element_has_exact_replacement": {
+                "type": "string"
+              },
+              "id_prefixes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+
+              "mappings": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "exact_mappings": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "close_mappings": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "narrow_mappings": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "broad_mappings": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "related_mappings": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "comments": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "notes": {
+                "$ref": "#/$defs/string_or_array"
+              },
+              "see_also": {
+                "$ref": "#/$defs/string_or_array"
+              },
+              "examples": {
+                "$ref": "#/$defs/examples"
+              },
+              "in_subset": {
+                "$ref": "#/$defs/string_or_array"
+              },
+              "annotations": {
+                "$ref": "#/$defs/annotations"
+              }
+            }
+          }
+        }
+      },
+
+
+      "types": {
+        "type": "object",
+        "patternProperties": {
+          "^.*$": {
+            "additionalProperties": false,
+            "properties": {
+              "uri": {
+                "type": "string"
+              },
+              "base": {
+                "type": "string"
+              },
+              "typeof": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "notes": {
+                "$ref": "#/$defs/string_or_array"
+              },
+              "aliases": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "id_prefixes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "exact_mappings": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+
+    "$defs": {
+
+      "string_or_array": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "deprecated": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "boolean"
+          }
+        ]
+      },
+
+      "annotation": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "tag": {
+            "type": "string"
+          },
+          "value": {
+            "type": "boolean"
+          }
+        }
+      },
+      "annotations": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/annotation"
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/annotation"
+            }
+          }
+        ]
+      },
+
+
+      "examples": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
+        }
+      },
+
+      "slot_usage": {
+        "type": "object",
+        "patternProperties": {
+          "^.*$": {
+            "additionalProperties": false,
+            "properties": {
+              "required": {
+                "type": "boolean"
+              },
+              "multivalued": {
+                "type": "boolean"
+              },
+              "symmetric": {
+                "type": "boolean"
+              },
+              "domain": {
+                "type": "string"
+              },
+              "slot_uri": {
+                "type": "string"
+              },
+              "range": {
+                "type": "string"
+              },
+              "minimum_value": {
+                "type": "integer"
+              },
+              "maximum_value": {
+                "type": "integer"
+              },
+              "subproperty_of": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "values_from": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "mappings": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "aliases": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "examples": {
+                "$ref": "#/$defs/examples"
+              }
+            }
+          }
+        }
+      }
+
+    }
+  }
+  

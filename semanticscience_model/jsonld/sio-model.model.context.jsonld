@@ -1,0 +1,654 @@
+{
+   "_comments": "Auto generated from sio-model.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-12-03T12:25:34\n    Schema: semanticscience-model\n    \n    id: https://semanticscience.org\n    description: The Semanticscience Integrated Ontology (SIO) provides a simple, integrated ontology of types and relations for rich description of objects, processes and their attributes.\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
+   "@context": {
+      "cito": "http://purl.org/spar/cito/",
+      "dc": "http://purl.org/dc/elements/1.1/",
+      "dct": "http://purl.org/dc/terms/",
+      "linkml": "https://w3id.org/linkml/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "protege": "http://protege.stanford.edu/plugins/owl/protege#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "schema": "http://schema.org/",
+      "sio": "http://semanticscience.org/resource/",
+      "skosvocab": "http://www.w3.org/2004/02/skos/core#",
+      "vann": "http://purl.org/vocab/vann/",
+      "xml": {
+         "@id": "http://www.w3.org/XML/1998/namespace",
+         "@prefix": true
+      },
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "@vocab": "http://semanticscience.org/resource/",
+      "affects": {
+         "@type": "@id"
+      },
+      "cites": {
+         "@type": "@id"
+      },
+      "contains": {
+         "@type": "@id"
+      },
+      "denotes": {
+         "@type": "@id"
+      },
+      "derivesInto": {
+         "@type": "@id"
+      },
+      "describes": {
+         "@type": "@id"
+      },
+      "encodes": {
+         "@type": "@id"
+      },
+      "existsAt": {
+         "@type": "@id"
+      },
+      "hasAgent": {
+         "@type": "@id"
+      },
+      "hasAnnotation": {
+         "@type": "@id"
+      },
+      "hasAttribute": {
+         "@type": "@id"
+      },
+      "hasBasis": {
+         "@type": "@id"
+      },
+      "hasBoundary": {
+         "@type": "@id"
+      },
+      "hasCapability": {
+         "@type": "@id"
+      },
+      "hasComponentPart": {
+         "@type": "@id"
+      },
+      "hasConcretization": {
+         "@type": "@id"
+      },
+      "hasCreator": {
+         "@type": "@id"
+      },
+      "hasDataItem": {
+         "@type": "@id"
+      },
+      "hasDirectPart": {
+         "@type": "@id"
+      },
+      "hasDisposition": {
+         "@type": "@id"
+      },
+      "hasEndTime": {
+         "@type": "@id"
+      },
+      "hasEvidence": {
+         "@type": "@id"
+      },
+      "hasExpression": {
+         "@type": "@id"
+      },
+      "hasFirstPart": {
+         "@type": "@id"
+      },
+      "hasFrequency": {
+         "@type": "@id"
+      },
+      "hasFunction": {
+         "@type": "@id"
+      },
+      "hasIdentifier": {
+         "@type": "@id"
+      },
+      "hasImplementation": {
+         "@type": "@id"
+      },
+      "hasInput": {
+         "@type": "@id"
+      },
+      "hasLastPart": {
+         "@type": "@id"
+      },
+      "hasMeasurementValue": {
+         "@type": "@id"
+      },
+      "hasMember": {
+         "@type": "@id"
+      },
+      "hasOrderedPart": {
+         "@type": "@id"
+      },
+      "hasOutput": {
+         "@type": "@id"
+      },
+      "hasParameter": {
+         "@type": "@id"
+      },
+      "hasPart": {
+         "@type": "@id"
+      },
+      "hasParticipant": {
+         "@type": "@id"
+      },
+      "hasPhenotype": {
+         "@type": "@id"
+      },
+      "hasProduct": {
+         "@type": "@id"
+      },
+      "hasProperPart": {
+         "@type": "@id"
+      },
+      "hasProperty": {
+         "@type": "@id"
+      },
+      "hasProvider": {
+         "@type": "@id"
+      },
+      "hasQuality": {
+         "@type": "@id"
+      },
+      "hasRealizableProperty": {
+         "@type": "@id"
+      },
+      "hasRole": {
+         "@type": "@id"
+      },
+      "hasSource": {
+         "@type": "@id"
+      },
+      "hasStartTime": {
+         "@type": "@id"
+      },
+      "hasSubstrate": {
+         "@type": "@id"
+      },
+      "hasTarget": {
+         "@type": "@id"
+      },
+      "hasTimeBoundary": {
+         "@type": "@id"
+      },
+      "hasTrigger": {
+         "@type": "@id"
+      },
+      "hasUniqueIdentifier": {
+         "@type": "@id"
+      },
+      "hasUnit": {
+         "@type": "@id"
+      },
+      "immediatelyDerivesInto": {
+         "@type": "@id"
+      },
+      "immediatelyPrecedes": {
+         "@type": "@id"
+      },
+      "immediatelyTransformsInto": {
+         "@type": "@id"
+      },
+      "inRelationFrom": {
+         "@type": "@id"
+      },
+      "inRelationTo": {
+         "@type": "@id"
+      },
+      "isAbout": {
+         "@type": "@id"
+      },
+      "isAdjacentTo": {
+         "@type": "@id"
+      },
+      "isAffectedBy": {
+         "@type": "@id"
+      },
+      "isAgentIn": {
+         "@type": "@id"
+      },
+      "isAlternateOf": {
+         "@type": "@id"
+      },
+      "isAnnotationOf": {
+         "@type": "@id"
+      },
+      "isAssociatedWith": {
+         "@type": "@id"
+      },
+      "isAttributeOf": {
+         "@type": "@id"
+      },
+      "isBaseFor": {
+         "@type": "@id"
+      },
+      "isBoundaryOf": {
+         "@type": "@id"
+      },
+      "isBroaderThan": {
+         "@type": "@id"
+      },
+      "isBroaderThant": {
+         "@type": "@id"
+      },
+      "isBroadMatchTo": {
+         "@type": "@id"
+      },
+      "isCapabilityOf": {
+         "@type": "@id"
+      },
+      "isCausallyRelatedFrom": {
+         "@type": "@id"
+      },
+      "isCausallyRelatedTo": {
+         "@type": "@id"
+      },
+      "isCausallyRelatedWith": {
+         "@type": "@id"
+      },
+      "isCitedBy": {
+         "@type": "@id"
+      },
+      "isCloseMatchTo": {
+         "@type": "@id"
+      },
+      "isComparableTo": {
+         "@type": "@id"
+      },
+      "isComponentPartOf": {
+         "@type": "@id"
+      },
+      "isConcretizationOf": {
+         "@type": "@id"
+      },
+      "isConnectedTo": {
+         "@type": "@id"
+      },
+      "isContainedIn": {
+         "@type": "@id"
+      },
+      "isCorrelatedWith": {
+         "@type": "@id"
+      },
+      "isCovalentlyConnectedTo": {
+         "@type": "@id"
+      },
+      "isCovalentlyConnectedTotransitive": {
+         "@type": "@id"
+      },
+      "isCreatorOf": {
+         "@type": "@id"
+      },
+      "isDataItemIn": {
+         "@type": "@id"
+      },
+      "isDenotedBy": {
+         "@type": "@id"
+      },
+      "isDerivedFrom": {
+         "@type": "@id"
+      },
+      "isDescribedBy": {
+         "@type": "@id"
+      },
+      "isDirectlyAfter": {
+         "@type": "@id"
+      },
+      "isDirectlyBefore": {
+         "@type": "@id"
+      },
+      "isDirectlyConnectedTo": {
+         "@type": "@id"
+      },
+      "isDirectPartOf": {
+         "@type": "@id"
+      },
+      "isDispositionOf": {
+         "@type": "@id"
+      },
+      "isDisputedBy": {
+         "@type": "@id"
+      },
+      "isDisputingEvidenceFor": {
+         "@type": "@id"
+      },
+      "isDissimilarTo": {
+         "@type": "@id"
+      },
+      "isEncodedBy": {
+         "@type": "@id"
+      },
+      "isEndTimeOf": {
+         "@type": "@id"
+      },
+      "isEqualTo": {
+         "@type": "@id"
+      },
+      "isEvidenceFor": {
+         "@type": "@id"
+      },
+      "isExactMatchTo": {
+         "@type": "@id"
+      },
+      "isExpressionOf": {
+         "@type": "@id"
+      },
+      "isFirstPartOf": {
+         "@type": "@id"
+      },
+      "isFrequencyOf": {
+         "@type": "@id"
+      },
+      "isFunctionOf": {
+         "@type": "@id"
+      },
+      "isGeneralizationOf": {
+         "@type": "@id"
+      },
+      "isGenericallyRelatedWith": {
+         "@type": "@id"
+      },
+      "isGreaterThan": {
+         "@type": "@id"
+      },
+      "isGreaterThanOrEqualTo": {
+         "@type": "@id"
+      },
+      "isHomologousTo": {
+         "@type": "@id"
+      },
+      "isIdenticalTo": {
+         "@type": "@id"
+      },
+      "isIdentifierFor": {
+         "@type": "@id"
+      },
+      "isImmediatelyDerivedFrom": {
+         "@type": "@id"
+      },
+      "isImmediatelyPrecededBy": {
+         "@type": "@id"
+      },
+      "isImmediatelyTransformedFrom": {
+         "@type": "@id"
+      },
+      "isImplementationOf": {
+         "@type": "@id"
+      },
+      "isInequalTo": {
+         "@type": "@id"
+      },
+      "isInputIn": {
+         "@type": "@id"
+      },
+      "isLastPartOf": {
+         "@type": "@id"
+      },
+      "isLesserThan": {
+         "@type": "@id"
+      },
+      "isLesserThanOrEqualTo": {
+         "@type": "@id"
+      },
+      "isLocatedIn": {
+         "@type": "@id"
+      },
+      "isLocationOf": {
+         "@type": "@id"
+      },
+      "isManifestationOf": {
+         "@type": "@id"
+      },
+      "isManifestedAs": {
+         "@type": "@id"
+      },
+      "isMatchTo": {
+         "@type": "@id"
+      },
+      "isMeasurementValueOf": {
+         "@type": "@id"
+      },
+      "isMemberOf": {
+         "@type": "@id"
+      },
+      "isModelledBy": {
+         "@type": "@id"
+      },
+      "isModelOf": {
+         "@type": "@id"
+      },
+      "isMutualCapabilityOf": {
+         "@type": "@id"
+      },
+      "isMutualDispositionOf": {
+         "@type": "@id"
+      },
+      "isMutuallyRelatedTo": {
+         "@type": "@id"
+      },
+      "isMutualRoleOf": {
+         "@type": "@id"
+      },
+      "isNarrowerThan": {
+         "@type": "@id"
+      },
+      "isNarrowerThant": {
+         "@type": "@id"
+      },
+      "isNumericallyComparableTo": {
+         "@type": "@id"
+      },
+      "isOppositeTo": {
+         "@type": "@id"
+      },
+      "isOrderedPartOf": {
+         "@type": "@id"
+      },
+      "isOrthologousTo": {
+         "@type": "@id"
+      },
+      "isOutputOf": {
+         "@type": "@id"
+      },
+      "isParalogousTo": {
+         "@type": "@id"
+      },
+      "isParameterIn": {
+         "@type": "@id"
+      },
+      "isParticipantIn": {
+         "@type": "@id"
+      },
+      "isPartOf": {
+         "@type": "@id"
+      },
+      "isPhenotypeOf": {
+         "@type": "@id"
+      },
+      "isPositionallyAfter": {
+         "@type": "@id"
+      },
+      "isPositionallyBefore": {
+         "@type": "@id"
+      },
+      "isPrecededBy": {
+         "@type": "@id"
+      },
+      "isPriorVersionOf": {
+         "@type": "@id"
+      },
+      "isProductOf": {
+         "@type": "@id"
+      },
+      "isProperPartOf": {
+         "@type": "@id"
+      },
+      "isPropertyOf": {
+         "@type": "@id"
+      },
+      "isProviderOf": {
+         "@type": "@id"
+      },
+      "isQualityOf": {
+         "@type": "@id"
+      },
+      "isRealizablePropertyOf": {
+         "@type": "@id"
+      },
+      "isRealizedIn": {
+         "@type": "@id"
+      },
+      "isReferencedBy": {
+         "@type": "@id"
+      },
+      "isReferredToBy": {
+         "@type": "@id"
+      },
+      "isRefutedBy": {
+         "@type": "@id"
+      },
+      "isRefutingEvidenceFor": {
+         "@type": "@id"
+      },
+      "isRegulatedBy": {
+         "@type": "@id"
+      },
+      "isRelatedTo": {
+         "@type": "@id"
+      },
+      "isRepresentedBy": {
+         "@type": "@id"
+      },
+      "isResultOf": {
+         "@type": "@id"
+      },
+      "isRoleOf": {
+         "@type": "@id"
+      },
+      "isSatisfiedBy": {
+         "@type": "@id"
+      },
+      "isSimilarTo": {
+         "@type": "@id"
+      },
+      "isSourceOf": {
+         "@type": "@id"
+      },
+      "isSpatiotemporallyRelatedTo": {
+         "@type": "@id"
+      },
+      "isSpecializationOf": {
+         "@type": "@id"
+      },
+      "isSpecifiedBy": {
+         "@type": "@id"
+      },
+      "isStartTimeOf": {
+         "@type": "@id"
+      },
+      "isSubjectOf": {
+         "@type": "@id"
+      },
+      "isSubsequentVersionOf": {
+         "@type": "@id"
+      },
+      "isSupportedBy": {
+         "@type": "@id"
+      },
+      "isSupportingEvidenceFor": {
+         "@type": "@id"
+      },
+      "isSurroundedBy": {
+         "@type": "@id"
+      },
+      "isTargetIn": {
+         "@type": "@id"
+      },
+      "isTimeBoundaryOf": {
+         "@type": "@id"
+      },
+      "isTranscribedFrom": {
+         "@type": "@id"
+      },
+      "isTranscribedInto": {
+         "@type": "@id"
+      },
+      "isTransformedFrom": {
+         "@type": "@id"
+      },
+      "isTranslatedFrom": {
+         "@type": "@id"
+      },
+      "isTranslatedInto": {
+         "@type": "@id"
+      },
+      "isTriggerFor": {
+         "@type": "@id"
+      },
+      "isUniqueIdentifierFor": {
+         "@type": "@id"
+      },
+      "isUnitOf": {
+         "@type": "@id"
+      },
+      "isVariantOf": {
+         "@type": "@id"
+      },
+      "isVersionOf": {
+         "@type": "@id"
+      },
+      "isWeaklyInteractingWith": {
+         "@type": "@id"
+      },
+      "isWeaklyInteractingWithtransitive": {
+         "@type": "@id"
+      },
+      "isXenologousTo": {
+         "@type": "@id"
+      },
+      "measuredAt": {
+         "@type": "@id"
+      },
+      "negativelyRegulates": {
+         "@type": "@id"
+      },
+      "overlapsWith": {
+         "@type": "@id"
+      },
+      "positivelyRegulates": {
+         "@type": "@id"
+      },
+      "precedes": {
+         "@type": "@id"
+      },
+      "realizes": {
+         "@type": "@id"
+      },
+      "references": {
+         "@type": "@id"
+      },
+      "refersTo": {
+         "@type": "@id"
+      },
+      "regulates": {
+         "@type": "@id"
+      },
+      "represents": {
+         "@type": "@id"
+      },
+      "resultsIn": {
+         "@type": "@id"
+      },
+      "satisfies": {
+         "@type": "@id"
+      },
+      "specifies": {
+         "@type": "@id"
+      },
+      "surrounds": {
+         "@type": "@id"
+      },
+      "transformsInto": {
+         "@type": "@id"
+      }
+   }
+}
+
