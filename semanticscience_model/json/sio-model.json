@@ -30933,9 +30933,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "sio-model.yaml",
-  "source_file_date": "2021-12-03T12:25:28",
+  "source_file_date": "2021-12-03T13:21:42",
   "source_file_size": 293469,
-  "generation_date": "2021-12-03T12:26:12",
+  "generation_date": "2021-12-03T14:16:01",
   "@type": "SchemaDefinition",
   "@context": [
     {

@@ -1,5 +1,5 @@
 # Auto generated from sio-model.yaml by pythongen.py version: 0.9.0
-# Generation date: 2021-12-03T12:26:24
+# Generation date: 2021-12-03T14:16:13
 # Schema: semanticscience-model
 #
 # id: https://semanticscience.org

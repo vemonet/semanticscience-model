@@ -14,7 +14,7 @@ SCHEMA_NAMES = $(patsubst $(SCHEMA_DIR)/%.yaml, %, $(SOURCE_FILES))
 
 SCHEMA_NAME = sio-model
 SCHEMA_SRC = $(SCHEMA_DIR)/$(SCHEMA_NAME).yaml
-PKG_TGTS = jsonld_context json_schema model owl shex shacl graphql rdf
+PKG_TGTS = jsonld_context json_schema model owl shex shacl graphql rdf rml
 TGTS = python $(PKG_TGTS)
 
 # Targets by PKG_TGT
@@ -26,6 +26,7 @@ PKG_T_OWL = $(PKG_DIR)/owl
 PKG_T_RDF = $(PKG_DIR)/rdf
 PKG_T_SHEX = $(PKG_DIR)/shex
 PKG_T_SHACL = $(PKG_DIR)/shacl
+PKG_T_RML = $(PKG_DIR)/rml
 PKG_T_SQLDDL = $(PKG_DIR)/sqlddl
 PKG_T_DOCS = $(MODEL_DOCS_DIR)
 PKG_T_PYTHON = $(PKG_DIR)/python
@@ -47,6 +48,10 @@ all: install gen
 install: Pipfile
 Pipfile:
 	pipenv install
+
+install-dev: 
+	pipenv install --dev
+
 uninstall:
 	rm -f Pipfile.lock
 	pipenv uninstall
@@ -225,6 +230,24 @@ $(PKG_T_SHACL)/%.shacl: target/shacl/%.shacl
 target/shacl/%.shacl: $(SCHEMA_DIR)/%.yaml tdir-shacl install
 	@printf "💠 "
 	$(RUN) gen-shacl --no-mergeimports $(GEN_OPTS) $< > $@
+
+
+# ---------------------------------------
+# RML
+# ---------------------------------------
+gen-rml: $(patsubst %, $(PKG_T_RML)/%.yarrr.yml, $(SCHEMA_NAMES))
+.PHONY: gen-rml
+
+$(PKG_T_RML)/%.yarrr.yml: target/rml/%.yarrr.yml
+	@mkdir -p $(PKG_T_RML)
+	@printf "✔️  "
+	cp $< $@
+
+# target/rml/%.yarrr.yml: $(SCHEMA_DIR)/%.yaml tdir-rml install
+target/rml/%.yarrr.yml: $(SCHEMA_DIR)/%.yaml tdir-rml
+	@printf "🦜 "
+	$(RUN) gen-rml --no-mergeimports $(GEN_OPTS) $< > $@
+
 
 # ---------------------------------------
 # OWL

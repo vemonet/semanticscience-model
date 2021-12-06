@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from sio-model.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-12-03T12:25:32\n    Schema: semanticscience-model\n    \n    id: https://semanticscience.org\n    description: The Semanticscience Integrated Ontology (SIO) provides a simple, integrated ontology of types and relations for rich description of objects, processes and their attributes.\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
+   "_comments": "Auto generated from sio-model.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2021-12-03T14:15:35\n    Schema: semanticscience-model\n    \n    id: https://semanticscience.org\n    description: The Semanticscience Integrated Ontology (SIO) provides a simple, integrated ontology of types and relations for rich description of objects, processes and their attributes.\n    license: https://creativecommons.org/publicdomain/zero/1.0/\n    ",
    "@context": {
       "cito": "http://purl.org/spar/cito/",
       "dc": "http://purl.org/dc/elements/1.1/",

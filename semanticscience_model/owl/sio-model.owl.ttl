@@ -7863,10 +7863,10 @@ sio:surrounds a owl:ObjectProperty,
     dct:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     pav:version "0.1.0" ;
     skosvocab:definition "The Semanticscience Integrated Ontology (SIO) provides a simple, integrated ontology of types and relations for rich description of objects, processes and their attributes." ;
-    linkml:generation_date "2021-12-03T12:25:39" ;
+    linkml:generation_date "2021-12-03T14:15:42" ;
     linkml:metamodel_version "1.7.0" ;
     linkml:source_file "sio-model.yaml" ;
-    linkml:source_file_date "2021-12-03T12:25:28" ;
+    linkml:source_file_date "2021-12-03T13:21:42" ;
     linkml:source_file_size 293469 .
 
 linkml:SubsetDefinition a owl:Class ;
@@ -12213,12 +12213,12 @@ sio:Quality a owl:Class,
     rdfs:label "Quality" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass sio:RealizableEntity ;
-            owl:onProperty sio:isBaseFor ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
             owl:onClass sio:Entity ;
             owl:onProperty sio:isQualityOf ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass sio:RealizableEntity ;
+            owl:onProperty sio:isBaseFor ],
         sio:Attribute ;
     skosvocab:definition """A quality is an attribute that is intrinsically associated with its bearer (or its parts), but whose presence/absence and observed/measured value may vary.
 """ .
@@ -12229,15 +12229,15 @@ sio:TimeInstant a owl:Class,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass sio:Entity ;
-            owl:onProperty sio:isTimeBoundaryOf ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass sio:Entity ;
             owl:onProperty sio:isStartTimeOf ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass sio:Entity ;
             owl:onProperty sio:isEndTimeOf ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass sio:Entity ;
+            owl:onProperty sio:isTimeBoundaryOf ],
         sio:TimeMeasurement ;
     skosvocab:definition """A time instant is a temporal region which occurs instantaneously, e.g. having no duration.
 """ .
@@ -12287,11 +12287,11 @@ sio:Term a owl:Class,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass sio:Term ;
-            owl:onProperty sio:isBroaderThant ],
+            owl:onProperty sio:isMatchTo ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass sio:Term ;
-            owl:onProperty sio:isMatchTo ],
+            owl:onProperty sio:isBroaderThant ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass sio:Term ;
@@ -12330,19 +12330,19 @@ sio:Entity a owl:Class,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass sio:Entity ;
-            owl:onProperty sio:hasCreator ],
+            owl:onProperty sio:hasAttribute ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass sio:Description ;
-            owl:onProperty sio:satisfies ],
+            owl:onClass sio:Entity ;
+            owl:onProperty sio:hasCreator ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass sio:Entity ;
             owl:onProperty sio:isRelatedTo ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass sio:Entity ;
-            owl:onProperty sio:hasAttribute ] ;
+            owl:onClass sio:Description ;
+            owl:onProperty sio:satisfies ] ;
     skosvocab:definition "Every thing is an entity." .
 
 linkml:ClassDefinition a owl:Class ;

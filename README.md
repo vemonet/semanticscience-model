@@ -40,10 +40,10 @@ Generate all artefacts from the YAML model in the `semanticscience_model` folder
 make
 ```
 
-Generate a specific artefact, for example with SHACL:
+Generate a specific artefact, for example with SHACL, and ignore the cache:
 
 ```bash
-make gen-shacl
+make gen-shacl -B
 ```
 
 Generate the model documentation in the `docs` folder:
