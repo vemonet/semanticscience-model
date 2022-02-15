@@ -1082,7 +1082,7 @@ classes:
 
   1DCartesianPoint:
     description: |
-      A 1D cartesian point is a point whose position is specified along a single dimension using Cartesian coordinates.
+      A 1D cartesian point is a point whose position is specified along a single dimension using Cartesian coordinates
     is_a: Point
 
   1DExtentQuantity:

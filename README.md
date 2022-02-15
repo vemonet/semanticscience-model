@@ -103,6 +103,8 @@ pip install -r requirements.txt
 
 Then run the notebook `owl_to_linkml.ipynb`
 
+> Note: a similar work has been done to convert OWL directly to RML https://github.com/oeg-dataintegration/owl2rml
+
 ## 🔗 Links
 
 LinkML docs: https://linkml.io/linkml/intro/tutorial01.html
